@@ -1,0 +1,1 @@
+- Every Go program requires a `package main` declaration and `func main()` entry point.
