@@ -26,7 +26,9 @@ func NewSavingAccount(number string, customer *customer.Customer, balance float6
 }
 
 // Saving accounts accrue interest
-func (s *SavingAccount) Accrue(rate float64) {
-	s.interest += s.balance*rate
-	s.balance += s.balance*rate
+func (s *SavingAccount) Accrue(rate float64, accrueChan chan<- float64) {
+	amount := s.balance*rate
+	s.interest += amount
+	s.balance += amount
+	accrueChan <- amount
 }

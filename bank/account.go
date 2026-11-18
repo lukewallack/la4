@@ -6,7 +6,7 @@ import (
 )
 
 type AccountInterface interface {
-	Accrue(rate float64)
+	Accrue(rate float64, accrueChan chan<- float64)
 	Deposit(amount float64)
 	Withdraw(amount float64)
 	Balance() 	float64

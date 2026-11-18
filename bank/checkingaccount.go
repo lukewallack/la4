@@ -23,4 +23,4 @@ func NewCheckingAccount(number string, customer *customer.Customer, balance floa
 }
 
 // We do not accrue interest in this checking account.
-func (s *CheckingAccount) Accrue(rate float64) {}
+func (s *CheckingAccount) Accrue(rate float64, accrueChan chan<- float64) { accrueChan <- 0 }
